@@ -11,21 +11,21 @@ fn main() {
 	let mut temp_start = String::new();
 
 	println!("What temperature are you converting to?");
-	io::stdin().read_line(temp_start)
+	io::stdin().read_line(&mut temp_start)
     .expect("Failed to read line");
 
 
 
 
-    let temp_start_int: f64 = temp_start.parse::<f64>().unwrap();
+    let temp_start_int: f64 = temp_start.trim().parse::<f64>().unwrap();
 
-    println!("{:?}",  temp_start.parse::<f64>());
+    println!("{:?}",  temp_start.trim().parse::<f64>().unwrap());
 
     if temp_type == "C"{
 	    print_temp("F", temp_start_int, convert_to_f(temp_start_int));
 
     }else{
-	    // print_temp("C", temp_start_int, convert_to_c(temp_start_int));
+	    print_temp("C", temp_start_int, convert_to_c(temp_start_int));
 
     }
 }
