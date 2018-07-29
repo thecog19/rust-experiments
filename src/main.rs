@@ -1,6 +1,11 @@
 use std::io;
 
 fn main() {
+	temperature_controller()
+}
+
+
+fn temperature_controller(){
 	let mut temp_type = String::new();
 
 	println!("Are you converting from C or from F?");
@@ -21,7 +26,7 @@ fn main() {
 
     println!("{:?}",  temp_start.trim().parse::<f64>().unwrap());
 
-    if temp_type == "C"{
+    if temp_type.trim() == "C"{
 	    print_temp("F", temp_start_int, convert_to_f(temp_start_int));
 
     }else{
@@ -29,6 +34,7 @@ fn main() {
 
     }
 }
+
 
 fn convert_to_f(c:f64) -> f64{
 	c*(1.8) + 32.0
